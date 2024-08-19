@@ -16,8 +16,7 @@ import os
 import time
 import gensim
 import nltk
-nltk.download('stopwords')
-from nltk.corpus import stopwords
+nltk.download('stopwords', download_dir='/home/appuser/nltk_data')
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
