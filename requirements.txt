@@ -8,7 +8,7 @@ matplotlib
 seaborn
 nltk
 gensim
-sklearn
+scikit-learn
 keras
 tensorflow
 tqdm
