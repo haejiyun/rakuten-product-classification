@@ -16,6 +16,7 @@ import os
 import time
 import gensim
 import nltk
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
@@ -30,6 +31,7 @@ from tensorflow.keras.layers import Embedding, Dense, Flatten, GlobalAveragePool
 #from tensorflow.keras.utils import np_utils
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from tqdm.notebook import tqdm
+from tqdm import tqdm
 from PIL import Image
 from io import StringIO
 
