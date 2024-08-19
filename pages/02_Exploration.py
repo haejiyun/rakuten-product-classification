@@ -16,6 +16,7 @@ import matplotlib.image as img
 import seaborn as sns
 import nltk
 nltk.download('punkt_tab')
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
