@@ -1,5 +1,4 @@
 awesome_streamlit
-PIL
 cv2
 wordcloud
 requests
@@ -12,3 +11,4 @@ sklearn
 keras
 tensorflow
 tqdm
+PIL
