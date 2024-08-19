@@ -31,6 +31,7 @@ from tensorflow.keras.layers import Embedding, Dense, Flatten, GlobalAveragePool
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from tqdm.notebook import tqdm
 from PIL import Image
+from io import StringIO
 
 
 @st.cache_data
@@ -209,7 +210,20 @@ model.add(Embedding(1000, 750))
 model.add(GlobalAveragePooling1D())
 model.add(Dense(27, activation='softmax'))
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-summary = model.summary()
+
+# Capture model summary
+try:
+    buf = StringIO()
+    model.summary(print_fn=lambda x: buf.write(x + '\n'))
+    summary_str = buf.getvalue()
+    buf.close()
+
+    # Display the model summary in Streamlit
+    st.text("Model Summary:")
+    st.text(summary_str)
+except Exception as e:
+    st.error(f"Error displaying model summary: {e}")
+
 img5 = Image.open('Picture5.png')
 st.image(img5)
 #st.image("Picture5.png")
