@@ -247,8 +247,10 @@ st.write("-	Puis appliqué nos algorithmes de machine learning sur ces features 
 st.text("")
 st.subheader("Modèle Doc2Vec")
 st.text("Voici les échantillons que nous obtenons après l'application du modèle Doc2Vec")
-for i, _d in enumerate(X):
-    train_tagged.append(TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)]))
+train_tagged = [
+    TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)])
+    for i, _d in tqdm(enumerate(X), file=sys.stdout)
+]
 #train_tagged = [TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)]) for i, _d in tqdm(enumerate(X))]
 model_combi = Doc2Vec(vector_size=100, epochs=10)
 model_combi.build_vocab(train_tagged)
