@@ -28,13 +28,8 @@ from tensorflow.keras.preprocessing.text import one_hot, Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Embedding, Dense, Flatten, GlobalAveragePooling1D
-#from tensorflow.keras.utils import np_utils
-from gensim.models.doc2vec import Doc2Vec, TaggedDocument
-from tqdm import tqdm
 from PIL import Image
 from io import StringIO
-from stqdm import stqdm
-import ipywidgets
 
 
 @st.cache_data
@@ -213,17 +208,7 @@ model.add(Embedding(1000, 750))
 model.add(GlobalAveragePooling1D())
 model.add(Dense(27, activation='softmax'))
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-
-# Capture model summary
-try:
-    summary_lines = []
-    model.summary(print_fn=lambda x: summary_lines.append(x))
-    # Display the model summary in Streamlit
-    st.text("Model Summary:")
-    st.text("\n".join(summary_lines))
-except Exception as e:
-    st.error(f"Error displaying model summary: {e}")
-
+model.summary()
 img5 = Image.open('Picture5.png')
 st.image(img5)
 #st.image("Picture5.png")
