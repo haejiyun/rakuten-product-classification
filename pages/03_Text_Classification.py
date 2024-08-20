@@ -215,14 +215,11 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 
 # Capture model summary
 try:
-    buf = StringIO()
-    model.summary(print_fn=lambda x: buf.write(x + '\n'))
-    summary_str = buf.getvalue()
-    buf.close()
-
+    summary_lines = []
+    model.summary(print_fn=lambda x: summary_lines.append(x))
     # Display the model summary in Streamlit
     st.text("Model Summary:")
-    st.text(summary_str)
+    st.text("\n".join(summary_lines))
 except Exception as e:
     st.error(f"Error displaying model summary: {e}")
 
