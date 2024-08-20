@@ -30,7 +30,6 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Embedding, Dense, Flatten, GlobalAveragePooling1D
 #from tensorflow.keras.utils import np_utils
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
-from tqdm.notebook import tqdm
 from tqdm import tqdm
 from PIL import Image
 from io import StringIO
