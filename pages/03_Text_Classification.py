@@ -33,7 +33,7 @@ from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from tqdm import tqdm
 from PIL import Image
 from io import StringIO
-import sys
+from stqdm import stqdm
 
 
 @st.cache_data
@@ -250,7 +250,7 @@ st.subheader("Modèle Doc2Vec")
 st.text("Voici les échantillons que nous obtenons après l'application du modèle Doc2Vec")
 train_tagged = [
     TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)])
-    for i, _d in tqdm(enumerate(X), file=sys.stdout)
+    for i, _d in stqdm(enumerate(X))
 ]
 #train_tagged = [TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)]) for i, _d in tqdm(enumerate(X))]
 model_combi = Doc2Vec(vector_size=100, epochs=10)
