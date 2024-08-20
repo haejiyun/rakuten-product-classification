@@ -248,13 +248,12 @@ st.write("-	Puis appliqué nos algorithmes de machine learning sur ces features 
 st.text("")
 st.subheader("Modèle Doc2Vec")
 st.text("Voici les échantillons que nous obtenons après l'application du modèle Doc2Vec")
-progress_bar = st.progress(0)
+#progress_bar = st.progress(0)
 train_tagged = []
 total = len(X)
-
 for i, _d in enumerate(X):
     train_tagged.append(TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)]))
-    progress_bar.progress((i + 1) / total)
+    #progress_bar.progress((i + 1) / total)
 #train_tagged = [TaggedDocument(words=nltk.word_tokenize(_d.lower()), tags=[str(i)]) for i, _d in tqdm(enumerate(X))]
 model_combi = Doc2Vec(vector_size=100, epochs=10)
 model_combi.build_vocab(train_tagged)
