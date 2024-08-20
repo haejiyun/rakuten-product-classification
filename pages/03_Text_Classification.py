@@ -34,6 +34,7 @@ from tqdm import tqdm
 from PIL import Image
 from io import StringIO
 from stqdm import stqdm
+import ipywidgets
 
 
 @st.cache_data
